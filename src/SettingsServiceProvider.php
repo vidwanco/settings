@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class SettingsServiceProvider extends ServiceProvider
 {
-
     /**
      * Register Application Services
      *
