@@ -1,16 +1,16 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "vidwanco/settings",
+    "description": "Database Driven Dynamic Settings with Form Builder",
     "keywords": [
-        ":vendor_name",
-        "package_slug"
+        "vidwanco",
+        "settings"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/vidwanco/settings",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Shashwat Mishra",
+            "email": "secrethash96@gmail.com",
             "role": "Developer"
         }
     ],
@@ -19,18 +19,25 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
+        "orchestra/testbench": "^6.0",
         "phpunit/phpunit": "^9.5",
-        "spatie/ray": "^1.28",
         "vimeo/psalm": "^4.8"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Vidwanco\\Settings\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vidwanco\\Settings\\SettingsServiceProvider"
+            ]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Vidwanco\\Settings\\Tests\\": "tests"
         }
     },
     "scripts": {
