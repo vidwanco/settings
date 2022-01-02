@@ -2,7 +2,6 @@
 
 namespace Vidwanco\Settings;
 
-use Vidwanco\Settings\Settings;
 use Illuminate\Support\ServiceProvider;
 
 class SettingsServiceProvider extends ServiceProvider
@@ -25,9 +24,8 @@ class SettingsServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        $this->app->singleton(Settings::class, function() {
+        $this->app->singleton(Settings::class, function () {
             return new Settings();
         });
     }
-
 }
