@@ -4,4 +4,5 @@ namespace Vidwanco\Settings;
 
 class SettingsClass
 {
+    //
 }

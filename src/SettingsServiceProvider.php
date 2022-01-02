@@ -7,6 +7,16 @@ use Illuminate\Support\ServiceProvider;
 class SettingsServiceProvider extends ServiceProvider
 {
     /**
+     * Bootstrap services for Application
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+
+    /**
      * Register Application Services
      *
      * @return void
@@ -14,15 +24,8 @@ class SettingsServiceProvider extends ServiceProvider
     public function register()
     {
         //
-    }
-
-    /**
-     * Boot Application
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
+        $this->app->singleton(Settings::class, function () {
+            return new Settings();
+        });
     }
 }
