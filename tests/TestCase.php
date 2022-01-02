@@ -6,7 +6,6 @@ use Vidwanco\Settings\SettingsServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-
     /**
      * Setup the Test Case
      *

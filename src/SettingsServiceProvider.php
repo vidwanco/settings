@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 
 class SettingsServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap services for Application
      *
