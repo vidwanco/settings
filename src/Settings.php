@@ -2,7 +2,7 @@
 
 namespace Vidwanco\Settings;
 
-class SettingsClass
+class Settings
 {
-    //
+    ////
 }
