@@ -3,6 +3,7 @@
 namespace Vidwan\Settings\Traits;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 use Vidwan\Settings\Form;
 use Vidwan\Settings\Settings;
 
@@ -15,9 +16,10 @@ trait HasForm
      * Parse Form key Attribute
      *
      * @param array $attributes
-     * @return \Illuminate\Contracts\View\View
+     * @param array $attributesFor an label id
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function formLabel(array $attributes = [], array $attributesFor = []): View
+    public function formLabel(array $attributes = [], array $attributesFor = []): View|ViewFactory
     {
         return Settings::label(
             $this,
@@ -31,9 +33,9 @@ trait HasForm
      *
      * @param array $attributes
      * @param array $attributesFor an input type
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function formInput(array $attributes = [], array $attributesFor = []): View
+    public function formInput(array $attributes = [], array $attributesFor = []): View|ViewFactory
     {
         return Settings::input(
             $this,
@@ -46,7 +48,7 @@ trait HasForm
      * Get a Complete Form
      *
      * @param array $attributes
-     * @return \Illuminate\Contracts\View\View
+     * @return \Vidwan\Settings\Form
      */
     public function form(): Form
     {

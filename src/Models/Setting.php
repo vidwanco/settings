@@ -21,7 +21,7 @@ class Setting extends Model
     /**
      * Get the group setting belongs to
      *
-     * @return Illuminate\Database\Eloquent\Concerns\HasRelationships::belongsTo
+     * @return \Illuminate\Database\Eloquent\Concerns\HasRelationships::belongsTo
      */
     public function group()
     {

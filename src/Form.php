@@ -80,7 +80,7 @@ class Form
     /**
      * Set Form Method
      *
-     * @param string
+     * @param string $method
      * @return self
      */
     public function method(string $method): self
@@ -93,7 +93,7 @@ class Form
     /**
      * Set Form Action
      *
-     * @param string
+     * @param string $action
      * @return self
      */
     public function action(string $action): self
@@ -184,7 +184,7 @@ class Form
     /**
      * Set Uploadable
      *
-     * @param mixed
+     * @param mixed $uploadable
      * @return self
      */
     public function uploadable(Closure|bool $uploadable = true): self
