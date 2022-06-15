@@ -11,8 +11,6 @@ if (! function_exists('settings')) {
             return $setting ? $setting->value : $default;
         }
 
-        return Setting::all();
-
         return $default;
     }
 }
