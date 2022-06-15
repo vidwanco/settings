@@ -1,24 +1,24 @@
 # Dynamic Settings with Form Builder
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/vidwanco/settings.svg?style=flat-square)](https://packagist.org/packages/vidwanco/settings)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vidwanco/settings/run-tests?label=tests)](https://github.com/vidwanco/settings/actions?query=workflow%3ATests+branch%3Amaster)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/vidwan/settings.svg?style=flat-square)](https://packagist.org/packages/vidwan/settings)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vidwan/settings/run-tests?label=tests)](https://github.com/vidwan/settings/actions?query=workflow%3ATests+branch%3Amaster)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/vidwanco/settings/Check%20&%20fix%20styling?label=code%20style)](https://github.com/vidwanco/settings/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/vidwanco/settings.svg?style=flat-square)](https://packagist.org/packages/vidwanco/settings)
+[![Total Downloads](https://img.shields.io/packagist/dt/vidwan/settings.svg?style=flat-square)](https://packagist.org/packages/vidwan/settings)
 
 
-A Package to generate Dynamic Settings with Simple Form Builder.
+A Package to generate Dynamic Settings with a Simple Form Builder.
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require vidwanco/settings
+composer require vidwan/settings
 ```
 
 ## Usage
 
-### FACADE
+### Form Builder
 
 File: `Vidwan\Settings\Settings`
 
@@ -44,6 +44,20 @@ Settings::form(Setting::all())
         ->blockAttributes(['class' => 'mb-1'])
         ->uploadable()
         ->render();
+```
+
+### Single Label & Input Builder
+
+```php
+use Vidwan\Settings\Models\Setting;
+
+$settings = Setting::all();
+
+foreach ($settings as $setting)
+{
+    $setting->formLabel(attributes: ['class' => 'something']); // <label></label>
+    $setting->formInput(attributes: ['class' => 'form-control']); // <input />
+}
 ```
 
 ### Helper
@@ -108,7 +122,7 @@ You can support us by contributing to our open source projects or Sponsoring the
 
 ## Credits
 
-- [Shashwat Mishra](https://github.com/vidwanco)
+- [Shashwat Mishra](https://github.com/secrethash)
 - [All Contributors](../../contributors)
 
 ## License
