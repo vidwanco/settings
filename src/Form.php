@@ -3,9 +3,9 @@
 namespace Vidwan\Settings;
 
 use Closure;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Contracts\View\Factory as ViewFactory;
 
 class Form
 {
