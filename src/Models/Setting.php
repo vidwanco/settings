@@ -1,20 +1,23 @@
 <?php
 
-namespace Vidwanco\Settings\Models;
+namespace Vidwan\Settings\Models;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Vidwan\Settings\Settings;
+use Vidwan\Settings\Traits\HasForm;
 
 class Setting extends Model
 {
-    use HasFactory;
+    use HasFactory, HasForm;
 
     protected $guarded = [];
 
     protected $casts = [
-        'options' => 'array',
+        'data' => 'array',
     ];
 
     /**
@@ -35,10 +38,8 @@ class Setting extends Model
     public function getDefaultAttribute(): string
     {
         $default = '';
-        if ($this->options) {
-            foreach ($this->options as $key => $value) {
-                $default = $key === 'default' ? $value : $default;
-            }
+        if ($this->data) {
+            $default = $this->data['default'] ?? $default;
         }
 
         return $this->value ?? $default;
@@ -49,13 +50,11 @@ class Setting extends Model
      *
      * @return array $options
      */
-    public function options(): array
+    public function getOptionsAttribute(): array
     {
         $options = [];
-        if ($this->options) {
-            foreach ($this->options as $key => $value) {
-                $options = $key === 'options' ? $value : $options;
-            }
+        if ($this->data) {
+            $options = $this->data['options'] ?? $options;
         }
 
         return $options;
@@ -68,11 +67,7 @@ class Setting extends Model
      */
     public function optionKeys(): array
     {
-        $options = $this->options();
-
-        [$keys, $values] = Arr::divide($options);
-
-        return $keys;
+        return array_keys($this->options);
     }
 
     /**
@@ -80,18 +75,9 @@ class Setting extends Model
      *
      * @return string Title Case
      */
-    public function getNameAttribute($value): string
+    public function getLabelAttribute($value): string
     {
         return Str::title($value);
     }
 
-    /**
-     * Parse Form key Attribute
-     *
-     * @return string Title Case
-     */
-    public function formNameAttribute($value): string
-    {
-        return Str::title($value);
-    }
 }
