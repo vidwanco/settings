@@ -1,7 +1,7 @@
 # Dynamic Settings with Form Builder
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/vidwan/settings.svg?style=flat-square)](https://packagist.org/packages/vidwan/settings)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vidwan/settings/run-tests?label=tests)](https://github.com/vidwan/settings/actions?query=workflow%3ATests+branch%3Amaster)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vidwanco/settings/run-tests?label=tests)](https://github.com/vidwanco/settings/actions?query=workflow%3ATests+branch%3Amaster)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/vidwanco/settings/Check%20&%20fix%20styling?label=code%20style)](https://github.com/vidwanco/settings/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/vidwan/settings.svg?style=flat-square)](https://packagist.org/packages/vidwan/settings)
 
