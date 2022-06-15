@@ -2,12 +2,11 @@
 
 namespace Vidwan\Settings;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\View\ComponentAttributeBag;
-use Vidwan\Settings\Models\Setting;
 use Illuminate\Support\Str;
+use Vidwan\Settings\Models\Setting;
 
 class Settings
 {

@@ -2,8 +2,8 @@
 
 namespace Vidwan\Settings\Traits;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Contracts\View\View;
 use Vidwan\Settings\Form;
 use Vidwan\Settings\Settings;
 
