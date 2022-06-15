@@ -2,17 +2,15 @@
 
 namespace Vidwan\Settings\Models;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Vidwan\Settings\Settings;
 use Vidwan\Settings\Traits\HasForm;
 
 class Setting extends Model
 {
-    use HasFactory, HasForm;
+    use HasFactory;
+    use HasForm;
 
     protected $guarded = [];
 
@@ -79,5 +77,4 @@ class Setting extends Model
     {
         return Str::title($value);
     }
-
 }

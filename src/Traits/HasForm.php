@@ -11,7 +11,6 @@ use Vidwan\Settings\Settings;
  */
 trait HasForm
 {
-
     /**
      * Parse Form key Attribute
      *

@@ -6,8 +6,8 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 
-class Form {
-
+class Form
+{
     /**
      * Form Action
      *
@@ -71,7 +71,6 @@ class Form {
      * @var bool
      */
     protected bool $upload = false;
-
 
     public function __construct(Collection $collection)
     {
