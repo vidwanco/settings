@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/vidwanco/settings.svg?style=flat-square)](https://packagist.org/packages/vidwanco/settings)
 
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+A Package to generate Dynamic Settings with Simple Form Builder.
 
 ## Installation
 
@@ -18,9 +18,70 @@ composer require vidwanco/settings
 
 ## Usage
 
+### FACADE
+
+File: `Vidwan\Settings\Settings`
+
 ```php
-$settings = new Vidwanco\Settings();
-echo $settings->echoPhrase('Hello, Vidwanco!');
+use Vidwan\Settings\Settings;
+...
+Settings::form(Setting::all())
+        ->labelAttributes(['class' => 'form-label'])
+        ->inputAttributesFor('text', [
+            'class' => 'form-control',
+        ])
+        ->inputAttributesFor('innerBlock', [
+            'checkbox' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->inputAttributesFor('checkbox', function ($settings) {
+            return [
+                'class' => 'form-check',
+            ];
+        })
+        ->formAttributes(['id' => 'settings-form'])
+        ->blockAttributes(['class' => 'mb-1'])
+        ->uploadable()
+        ->render();
+```
+
+### Helper
+
+```php
+    settings('theme');
+```
+
+### Ignoring Migration
+
+Ignoring auto-migrations (without publishing) and specifying the path to publish migrations.
+
+```php
+
+use Vidwan\Settings\Settings;
+
+...
+
+class AppServiceProvider extends ServiceProvider
+{
+    ...
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        // Disable auto-migration
+        Settings::$runsMigrations = false;
+        // Sets Migration Path
+        Settings::$migrationPath = database_path('migrations/tenant');
+    }
+
+    ...
+
+}
 ```
 
 ## Testing
