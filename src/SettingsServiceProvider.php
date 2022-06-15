@@ -3,7 +3,6 @@
 namespace Vidwan\Settings;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Blade;
 
 class SettingsServiceProvider extends ServiceProvider
 {
@@ -18,7 +17,6 @@ class SettingsServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'vidwanco-settings');
 
         if ($this->app->runningInConsole()) {
-
             $this->setMigrationPath();
 
             $this->publishes([
@@ -34,9 +32,7 @@ class SettingsServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../resources/views' => base_path('resources/views/vendor/settings'),
             ], 'vidwan-settings-views');
-
         }
-
     }
 
     /**
@@ -58,8 +54,7 @@ class SettingsServiceProvider extends ServiceProvider
      */
     protected function setMigrationPath()
     {
-        if (empty(Settings::$migrationPath))
-        {
+        if (empty(Settings::$migrationPath)) {
             Settings::$migrationPath = config('settings.migration_path', database_path('migrations'));
         }
     }

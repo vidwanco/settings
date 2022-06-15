@@ -2,14 +2,13 @@
 
 namespace Vidwan\Settings;
 
-use Vidwan\Settings\Models\Setting;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\ComponentAttributeBag;
+use Vidwan\Settings\Models\Setting;
 
 class Settings
 {
-
     public static $method = 'PUT';
 
     public static $type = 'input';
@@ -42,8 +41,7 @@ class Settings
     {
         $type = self::$type;
 
-        if (self::checkComponent($setting->input))
-        {
+        if (self::checkComponent($setting->input)) {
             $type = $setting->input;
         }
 
