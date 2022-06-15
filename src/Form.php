@@ -5,6 +5,7 @@ namespace Vidwan\Settings;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 
 class Form
 {
@@ -277,9 +278,9 @@ class Form
     /**
      * Render the Form View
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function render(): View
+    public function render(): View|ViewFactory
     {
         return Settings::formRender($this->collection, $this);
     }
