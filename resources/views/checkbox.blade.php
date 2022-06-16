@@ -31,6 +31,12 @@
                 @endforeach
             @endisset
         />
-        <label for="{{$keyID}}">{{ Str::title($value) }}</label>
+        <label for="{{$keyID}}"
+            @isset($attributesFor['innerLabel'][$type])
+                @foreach ($attributesFor['innerLabel'][$type] as $key => $attribute)
+                    {{$key}}{!! '="' !!}{{$attribute}}{!!'"'!!}
+                @endforeach
+            @endisset
+        >{{ Str::title($value) }}</label>
     </div>
 @endforeach

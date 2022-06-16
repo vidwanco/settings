@@ -1,8 +1,8 @@
 
 @foreach ($setting->options as $keyID => $value)
     <div
-        @isset($attributesFor[$type]['innerBlock'])
-            @foreach ($attributesFor[$type]['innerBlock'] as $key => $attribute)
+        @isset($attributesFor['innerBlock'][$type])
+            @foreach ($attributesFor['innerBlock'][$type] as $key => $attribute)
                 {{$key}}{!! '="' !!}{{$attribute}}{!!'"'!!}
             @endforeach
         @endisset
@@ -29,6 +29,12 @@
                 @endforeach
             @endisset
         />
-        <label for="{{$keyID}}">{{ Str::title($value) }}</label>
+        <label for="{{$keyID}}"
+            @isset($attributesFor['innerLabel'][$type])
+                @foreach ($attributesFor['innerLabel'][$type] as $key => $attribute)
+                    {{$key}}{!! '="' !!}{{$attribute}}{!!'"'!!}
+                @endforeach
+            @endisset
+        >{{ Str::title($value) }}</label>
     </div>
 @endforeach
