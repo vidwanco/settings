@@ -199,12 +199,38 @@ class Form
     /**
      * Set Form Button Text
      *
-     * @param array $text
+     * @param string $text
      * @return self
      */
     public function buttonText(string $text): self
     {
         $this->attributesFor['button']['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set Form Button Icon
+     *
+     * @param string $icon
+     * @return self
+     */
+    public function buttonIcon(string $icon): self
+    {
+        $this->attributesFor['button']['icon'] = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Set Form Button Icon
+     *
+     * @param string $class
+     * @return self
+     */
+    public function buttonIconClass(string $class): self
+    {
+        $this->attributesFor['button']['icon']['class'] = $class;
 
         return $this;
     }

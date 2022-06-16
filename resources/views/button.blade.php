@@ -16,5 +16,5 @@
             @endforeach
         @endisset
 >
-{!! $attributesFor['button']['icon'] ?? '' !!} {{$attributesFor['button']['text'] ?? 'Submit'}}
+@isset($attributesFor['button']['icon']) @svg($attributesFor['button']['icon'], $attributesFor['button']['icon']['class'] ?? '') @endisset {{$attributesFor['button']['text'] ?? 'Submit'}}
 </button>
