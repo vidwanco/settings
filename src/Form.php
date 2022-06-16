@@ -334,7 +334,7 @@ class Form
     /**
      * Getter Function for Action
      *
-     * @return ?string
+     * @return string
      */
     public function getButtonType(): string
     {
