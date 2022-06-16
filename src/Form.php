@@ -60,6 +60,20 @@ class Form
     protected array $block = [];
 
     /**
+     * Form Button Type
+     *
+     * @var string
+     */
+    protected string $buttonType = 'submit';
+
+    /**
+     * Form Button Attributes
+     *
+     * @var array
+     */
+    protected array $button = [];
+
+    /**
      * Eloquent Collection
      *
      * @var \Illuminate\Database\Eloquent\Collection
@@ -170,6 +184,32 @@ class Form
     }
 
     /**
+     * Set Form Button Attributes
+     *
+     * @param array $attributes
+     * @return self
+     */
+    public function buttonAttributes(array $attributes): self
+    {
+        $this->button = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Set Form Button Text
+     *
+     * @param array $text
+     * @return self
+     */
+    public function buttonText(string $text): self
+    {
+        $this->attributesFor['button']['text'] = $text;
+
+        return $this;
+    }
+
+    /**
      * Set Input Block Attributes
      *
      * @param array $attributes
@@ -263,6 +303,26 @@ class Form
     public function getAction(): ?string
     {
         return $this->action;
+    }
+
+    /**
+     * Getter Function for Action
+     *
+     * @return ?string
+     */
+    public function getButtonType(): string
+    {
+        return $this->buttonType;
+    }
+
+    /**
+     * Getter Function for Block Attributes
+     *
+     * @return array
+     */
+    public function getButtonAttributes(): array
+    {
+        return $this->button;
     }
 
     /**

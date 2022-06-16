@@ -86,6 +86,23 @@ class Settings
     }
 
     /**
+     * Render the Label HTML Element
+     *
+     * @param \Vidwan\Settings\Models\Setting $setting
+     * @param array $attributes
+     * @param $attributesFor
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public static function button(string $type, array $attributes = [], array $attributesFor = []): View|ViewFactory
+    {
+        return view('vidwanco-settings::button', [
+            'type' => array_key_exists('type', $attributes) ? null : $type,
+            'attributes' => $attributes,
+            'attributesFor' => $attributesFor,
+        ]);
+    }
+
+    /**
      * Creates a Form Object
      *
      * @param \Illuminate\Database\Eloquent\Collection $collection
@@ -112,6 +129,8 @@ class Settings
             'input' => $form->getInputAttributes(),
             'attributesFor' => $form->getAttributesFor(),
             'block' => $form->getBlockAttributes(),
+            'button' => $form->getButtonAttributes(),
+            'buttonType' => $form->getButtonType(),
             'method' => $form->getMethod(),
             'action' => $form->getAction(),
             'uploadable' => $form->isUploadable(),

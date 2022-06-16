@@ -21,4 +21,6 @@
 
     @endforeach
 
+    {!! \Vidwan\Settings\Settings::button($buttonType, $button, $attributesFor) !!}
+
 </form>
