@@ -10,14 +10,16 @@
 
     @foreach ($settings as $setting)
 
-        <div
-            @foreach ($block as $key => $value)
-                {{$key}}{!! '="' !!}{{$value}}{!! '"' !!}
-            @endforeach
-        >
-            {!! $setting->formLabel($label, $attributesFor) !!}
-            {!! $setting->formInput($input, $attributesFor) !!}
-        </div>
+        @can($setting->permission)
+            <div
+                @foreach ($block as $key => $value)
+                    {{$key}}{!! '="' !!}{{$value}}{!! '"' !!}
+                @endforeach
+            >
+                {!! $setting->formLabel($label, $attributesFor) !!}
+                {!! $setting->formInput($input, $attributesFor) !!}
+            </div>
+        @endcan
 
     @endforeach
 
