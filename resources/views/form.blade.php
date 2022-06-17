@@ -11,6 +11,12 @@
     @foreach ($settings as $setting)
 
         @can($setting->permission)
+
+            @php
+                $invalidClass = $errors->has($setting->key) ? ($attributesFor["is-invalid"]['input'] ?? "") : "";
+                $input['class'] = isset($input['class']) ? $input['class'].' '.$invalidClass : $invalidClass;
+            @endphp
+
             <div
                 @foreach ($block as $key => $value)
                     {{$key}}{!! '="' !!}{{$value}}{!! '"' !!}
@@ -19,6 +25,7 @@
                 {!! $setting->formLabel($label, $attributesFor) !!}
                 {!! $setting->formInput($input, $attributesFor) !!}
             </div>
+
         @endcan
 
     @endforeach
