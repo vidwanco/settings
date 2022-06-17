@@ -145,6 +145,19 @@ class Form
     }
 
     /**
+     * Set Input Invaild Class
+     *
+     * @param string $attributes
+     * @return self
+     */
+    public function inValidClass(string $class): self
+    {
+        $this->attributesFor['is-invalid']['input'] = $class;
+
+        return $this;
+    }
+
+    /**
      * Set Label Attributes
      *
      * @param array $attributes
