@@ -1,5 +1,7 @@
-
 @foreach ($setting->options as $keyID => $value)
+    @php
+        $additionalAttributes = $attributesFor[$type] ?? [];
+    @endphp
     <div
         @isset($attributesFor['innerBlock'][$type])
             @foreach ($attributesFor['innerBlock'][$type] as $key => $attribute)
@@ -15,16 +17,15 @@
             {{ old($setting->key, $setting->default) == $keyID ? 'checked' : '' }}
             {{-- Attributes --}}
             @foreach ($attributes as $key => $attribute)
-                @php $additionalAttributes = ''; @endphp
-                @isset($attributesFor[$type][$key])
+                @isset($additionalAttributes[$key])
                     @php
-                        $additionalAttributes = Arr::pull($attributesFor[$type], $key);
+                        $additionalAttributes = Arr::pull($additionalAttributes, $key);
                     @endphp
                 @endisset
                 {{$key}}{!! '="' !!}{{$attribute}} {{$additionalAttributes}}{!!'"'!!}
             @endforeach
-            @isset($attributesFor[$type])
-                @foreach ($attributesFor[$type] as $key => $attribute)
+            @isset($additionalAttributes)
+                @foreach ($additionalAttributes as $key => $attribute)
                     {{$key}}{!! '="' !!}{{$attribute}}{!!'"'!!}
                 @endforeach
             @endisset
