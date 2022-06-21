@@ -22,10 +22,10 @@
             @foreach ($attributes as $key => $attribute)
                 @isset($additionalAttributes[$key])
                     @php
-                        $additionalAttributes = Arr::pull($additionalAttributes, $key);
+                        $additionalAttributesValue = Arr::pull($additionalAttributes, $key);
                     @endphp
                 @endisset
-                {{$key}}{!! '="' !!}{{$attribute}} {{$additionalAttributes}}{!!'"'!!}
+                {{$key}}{!! '="' !!}{{$attribute}} {{$additionalAttributesValue}}{!!'"'!!}
             @endforeach
             @isset($additionalAttributes)
                 @foreach ($additionalAttributes as $key => $attribute)
