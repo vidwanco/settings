@@ -10,7 +10,7 @@
         @endisset
     >
         <input
-            name="{{ $setting->key }}[]"
+            name="{{ $setting->key }}"
             type="{{ $type }}"
             id="{{ $keyID }}"
             value="{{ $keyID }}"

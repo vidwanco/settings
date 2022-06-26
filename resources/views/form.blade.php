@@ -24,6 +24,22 @@
             >
                 {!! $setting->formLabel($label, $attributesFor) !!}
                 {!! $setting->formInput($input, $attributesFor) !!}
+                @error($setting->key)
+                    <span
+                        @if(isset($attributesFor["is-invalid"]['message']) && is_array($attributesFor["is-invalid"]['message']))
+                            @foreach ($attributesFor["is-invalid"]['message'] as $messageKey => $messageAttributes)
+                                {{$messageKey}}{!! '="' !!}{{$messageAttributes}}{!! '"' !!}
+                            @endforeach
+                        @endif
+                    >
+                        <strong>
+                            @isset($attributesFor['is-invalid']['icon'])
+                                @svg($attributesFor['is-invalid']['icon'], $attributesFor['is-invalid']['icon_class'] ?? '')
+                            @endisset
+                            {{ $message }}
+                        </strong>
+                    </span>
+                @enderror
             </div>
 
         @endcan

@@ -158,6 +158,45 @@ class Form
     }
 
     /**
+     * Set Invaild Icon
+     *
+     * @param string $attributes
+     * @return self
+     */
+    public function inValidIcon(string $icon): self
+    {
+        $this->attributesFor['is-invalid']['icon'] = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Set Invaild Icon Class
+     *
+     * @param string $attributes
+     * @return self
+     */
+    public function inValidIconClass(string $class): self
+    {
+        $this->attributesFor['is-invalid']['icon_class'] = $class;
+
+        return $this;
+    }
+
+    /**
+     * Set Invalid Message Attributes
+     *
+     * @param array $attributes
+     * @return self
+     */
+    public function inValidMessageAttributes(array $attributes): self
+    {
+        $this->attributesFor['is-invalid']['message'] = $attributes;
+
+        return $this;
+    }
+
+    /**
      * Set Label Attributes
      *
      * @param array $attributes
