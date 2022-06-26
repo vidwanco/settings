@@ -151,62 +151,51 @@ class Settings
      */
     public static function store(Request $request, SettingGroup $group): bool
     {
-		$settings = $group->settings;
+        $settings = $group->settings;
 
-		$rules = collect([]);
-		$messages = collect([]);
-		$attributes = collect([]);
+        $rules = collect([]);
+        $messages = collect([]);
+        $attributes = collect([]);
 
-		foreach ($settings as $setting)
-		{
-			$type = $setting->input;
-			$ruleType = [];
+        foreach ($settings as $setting) {
+            $type = $setting->input;
+            $ruleType = [];
 
-			if($type === 'radio' OR $type === 'select' OR $type === 'checkbox')
-			{
-				$ruleType = Arr::prepend($ruleType, Rule::in($setting->optionKeys()));
-			}
-			elseif($type === 'text' OR $type === 'textarea')
-			{
-				$ruleType = Arr::prepend($ruleType, 'string');
-				$ruleType = Arr::prepend($ruleType, 'nullable');
-			}
-			elseif($type === 'email')
-			{
-				$ruleType = Arr::prepend($ruleType, 'email');
-			}
-			elseif($type === 'password')
-			{
-				$ruleType = Arr::prepend($ruleType, 'confirmed');
-			}
+            if ($type === 'radio' or $type === 'select' or $type === 'checkbox') {
+                $ruleType = Arr::prepend($ruleType, Rule::in($setting->optionKeys()));
+            } elseif ($type === 'text' or $type === 'textarea') {
+                $ruleType = Arr::prepend($ruleType, 'string');
+                $ruleType = Arr::prepend($ruleType, 'nullable');
+            } elseif ($type === 'email') {
+                $ruleType = Arr::prepend($ruleType, 'email');
+            } elseif ($type === 'password') {
+                $ruleType = Arr::prepend($ruleType, 'confirmed');
+            }
 
-			$rules->put($setting->key, $ruleType);
-			$attributes->put($setting->key, $setting->name);
-		}
+            $rules->put($setting->key, $ruleType);
+            $attributes->put($setting->key, $setting->name);
+        }
 
-		$validator = Validator::make(
-			$request->all(),
-			$rules->toArray(),
-			$messages->toArray(),
-			$attributes->toArray()
-		);
+        $validator = Validator::make(
+            $request->all(),
+            $rules->toArray(),
+            $messages->toArray(),
+            $attributes->toArray()
+        );
 
-		if ($validator->fails())
-		{
-			return throw new ValidationException($validator);
-		}
+        if ($validator->fails()) {
+            return throw new ValidationException($validator);
+        }
 
-		$validated = $validator->validated();
+        $validated = $validator->validated();
 
-		foreach($validated as $key => $value)
-		{
-			$set = Setting::where('key', $key)->first();
-			$set->value = $value;
-			$set->save();
-		}
+        foreach ($validated as $key => $value) {
+            $set = Setting::where('key', $key)->first();
+            $set->value = $value;
+            $set->save();
+        }
 
-		return true;
-
+        return true;
     }
 
     /**
