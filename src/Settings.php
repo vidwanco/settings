@@ -147,7 +147,7 @@ class Settings
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return bool
      */
     public static function store(Request $request, SettingGroup $group): bool
     {
