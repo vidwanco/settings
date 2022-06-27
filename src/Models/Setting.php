@@ -40,7 +40,9 @@ class Setting extends Model
             $default = $this->data['default'] ?? $default;
         }
 
-        return $this->value ?? $default;
+        return $this->value ?
+            (empty($this->value) ? $default : $this->value) :
+            $default;
     }
 
     /**
