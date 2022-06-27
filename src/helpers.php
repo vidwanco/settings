@@ -8,7 +8,7 @@ if (! function_exists('settings')) {
         if ($key) {
             $setting = Setting::where('key', $key)->first();
 
-            return $setting ? $setting->value : $default;
+            return $setting ? ($setting->value ?? $setting->default) : $default;
         }
 
         return $default;
