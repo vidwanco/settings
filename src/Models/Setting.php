@@ -4,9 +4,9 @@ namespace Vidwan\Settings\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Vidwan\Settings\Traits\HasForm;
-use Illuminate\Support\Facades\Cache;
 
 class Setting extends Model
 {
