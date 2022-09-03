@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Vidwan\Settings\Traits\HasForm;
+use Illuminate\Support\Facades\Cache;
 
 class Setting extends Model
 {
@@ -17,6 +18,18 @@ class Setting extends Model
     protected $casts = [
         'data' => 'array',
     ];
+
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        $flush = fn ($model) => Cache::tags(["vidwanco-settings"])->flush();
+        static::saved($flush);
+        static::deleted($flush);
+    }
 
     /**
      * Get the group setting belongs to
